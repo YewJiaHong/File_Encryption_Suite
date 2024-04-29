@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.realcalculator.Interface"
+      prefHeight="400.0" prefWidth="600.0"
+      maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      alignment="CENTER">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    <AnchorPane>
+        <stylesheets>
+            <URL value = "@style.css"/>
+        </stylesheets>
+        <VBox spacing="20" alignment="CENTER">
+            <TextField fx:id="display" promptText="0" disable="true" maxWidth="200"/>
+
+            <GridPane alignment="CENTER" styleClass="background" hgap="5" vgap="5">
+
+                <Button text="7" onAction="#appendToDisplay" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Button text="8" onAction="#appendToDisplay" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Button text="9" onAction="#appendToDisplay" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <Button text="+" onAction="#appendToDisplay" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+
+                <Button text="4" onAction="#appendToDisplay" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Button text="5" onAction="#appendToDisplay" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button text="6" onAction="#appendToDisplay" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Button text="-" onAction="#appendToDisplay" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+
+                <Button text="3" onAction="#appendToDisplay" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Button text="2" onAction="#appendToDisplay" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button text="1" onAction="#appendToDisplay" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Button text="x" onAction="#appendToDisplay" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+
+                <Button text="0" onAction="#appendToDisplay" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Button text="." onAction="#appendToDisplay" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Button text="=" onAction="#calculate" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Button text="/" onAction="#appendToDisplay" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                <!-- "C" button in the first row -->
+                <Button text="C" onAction="#clearDisplay" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+            </GridPane>
+        </VBox>
+    </AnchorPane>
+</HBox>

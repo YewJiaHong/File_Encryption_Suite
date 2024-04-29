@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarLayoutEncryptFile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarEncryptFile"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/mainTheme">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/btnBackEncryptFile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="@string/back_button"
+                    app:tint="@color/white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textViewEncryptFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/encryptFile"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toTopOf="@id/btnBackEncryptFile"
+                    app:layout_constraintBottom_toBottomOf="@id/btnBackEncryptFile"
+                    app:layout_constraintStart_toEndOf="@id/btnBackEncryptFile"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbarLayoutEncryptFile"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/questionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fileName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <EditText
+                    android:id="@+id/textFileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="invisible"
+                    android:importantForAutofill="no"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:maxLength="40"
+                    android:maxLines="5"
+                    android:ellipsize="end"/>
+                <Button
+                    android:id="@+id/btnSelectFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select File"
+                    android:backgroundTint="@color/darkerMainTheme"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textFileName"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/selectEncryptAlgo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@id/fileName"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Type of Encryption"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radioGrp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/selectEncryptAlgo">
+                <RadioButton android:id="@+id/radioAES"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="AES"/>
+            </RadioGroup>
+            <TextView
+                android:id="@+id/keyNameTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@id/radioGrp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Key Name: "
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/editTextKeyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/keyNameTitle"
+                app:layout_constraintStart_toStartOf="@id/keyNameTitle"
+                android:layout_marginEnd="50dp"
+                android:hint="Enter Key Name Here"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLength="40"
+                android:maxLines="1"/>
+
+            <CheckBox
+                android:id="@+id/showSeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use your own seed"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/editTextKeyName"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/seedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/showSeed"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/firstSeedTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="First Seed: "
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editTextFirstSeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/firstSeedTitle"
+                    app:layout_constraintStart_toStartOf="@id/firstSeedTitle"
+                    android:layout_marginEnd="50dp"
+                    android:hint="Enter First Seed Here"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="40"
+                    android:maxLines="1"/>
+                <TextView
+                    android:id="@+id/secondSeedTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/editTextFirstSeed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="Second Seed: "
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editTextSecondSeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/secondSeedTitle"
+                    app:layout_constraintStart_toStartOf="@id/secondSeedTitle"
+                    android:layout_marginEnd="50dp"
+                    android:hint="Enter Second Seed Here"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="40"
+                    android:maxLines="1"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnEncryptFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encrypt File"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/lightGrey"
+                app:layout_constraintTop_toBottomOf="@id/seedLayout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_line"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

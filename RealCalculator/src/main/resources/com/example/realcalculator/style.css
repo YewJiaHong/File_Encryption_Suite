@@ -1,0 +1,12 @@
+#display{
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+Button{
+    -fx-font-size:15px;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+}
